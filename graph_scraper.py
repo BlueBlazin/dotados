@@ -7,25 +7,11 @@ from parser import parse_template
 from dataclasses import dataclass
 from typing import List
 import pickle
+from utils import fetch, run_task, BASE_DOTA_URL
 
 
-BASE_URL = "https://liquipedia.net/dota2"
-TEAMS_URL = f"{BASE_URL}/Portal:Teams"
-TI_URL = f"{BASE_URL}/The_International"
-
-##############################################################################
-# Utils
-##############################################################################
-
-
-async def fetch(session, url):
-    async with session.get(url, verify_ssl=False) as response:
-        return await response.text()
-
-
-def run_task(task):
-    loop = asyncio.get_event_loop()
-    loop.run_until_complete(task)
+TEAMS_URL = f"{BASE_DOTA_URL}/Portal:Teams"
+TI_URL = f"{BASE_DOTA_URL}/The_International"
 
 
 ##############################################################################
