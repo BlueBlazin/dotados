@@ -2,7 +2,7 @@ import pickle
 import itertools
 import cv2
 from pathlib import Path
-from graph_scraper import Team  # noqa
+from utils import Team  # noqa
 from edit_image import center_and_save, resize_image
 from concurrent.futures import ProcessPoolExecutor
 

@@ -4,10 +4,8 @@ from bs4 import BeautifulSoup
 import itertools
 from pathlib import Path
 from parser import parse_template
-from dataclasses import dataclass
-from typing import List
 import pickle
-from utils import fetch, run_task, BASE_DOTA_URL
+from utils import fetch, run_task, BASE_DOTA_URL, Team
 
 
 TEAMS_URL = f"{BASE_DOTA_URL}/Portal:Teams"
@@ -79,12 +77,6 @@ async def write_all_teams():
 ##############################################################################
 # Build graph
 ##############################################################################
-
-
-@dataclass
-class Team:
-    name: str
-    rosters: List[List[str]]
 
 
 def read_teams():

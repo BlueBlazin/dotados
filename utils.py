@@ -1,8 +1,17 @@
+import pickle
 import asyncio
 from pathlib import Path
+from dataclasses import dataclass
+from typing import List
 
 BASE_URL = "https://liquipedia.net"
 BASE_DOTA_URL = f"{BASE_URL}/dota2"
+
+
+@dataclass
+class Team:
+    name: str
+    rosters: List[List[str]]
 
 
 async def fetch(session, url):
@@ -22,3 +31,42 @@ def read_players():
         players = f.read().split('\n')[1:]
 
     return players
+
+
+def rectify_team_rosters():
+    src_path = Path('.') / 'team_rosters_old.pkl'
+    dst_path = Path('.') / 'team_rosters.pkl'
+
+    with src_path.open('rb') as f:
+        teams = pickle.load(f)
+
+    new_teams = []
+
+    for team in teams:
+        if team == []:
+            continue
+
+        corrected_rosters = []
+
+        for roster in team.rosters:
+            roster = [p.strip() for p in roster]
+            corrected_rosters.append(roster)
+
+        new_team = Team(name=team.name, rosters=corrected_rosters)
+        new_teams.append(new_team)
+
+    with dst_path.open('wb') as f:
+        pickle.dump(new_teams, f)
+
+
+def read_teams():
+    path = Path('.') / 'team_rosters.pkl'
+
+    with path.open('rb') as f:
+        teams = pickle.load(f)
+
+    return teams
+
+
+if __name__ == "__main__":
+    rectify_team_rosters()

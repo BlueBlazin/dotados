@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card {
+  width: 500px;
+  padding: 20px;
+  margin: 15px;
+  margin-bottom: 10px;
+  background-color: #393e46 !important;
+}
+
+.dot {
+  background-color: #393e46 !important;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: none;
+}
+
+.connector {
+  background-color: #393e46 !important;
+}

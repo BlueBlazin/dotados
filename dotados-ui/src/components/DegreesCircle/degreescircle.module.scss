@@ -1,0 +1,25 @@
+.container {
+  background-color: darken(#222831, 5) !important;
+  width: 225px;
+  height: 170px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  stroke: #393e46;
+  fill: none;
+  //   stroke-dasharray: 3.5;
+}
+
+.progress {
+  fill: none;
+}
+
+.text {
+  font-size: 28px;
+  // font-weight: bold;
+  fill: #f8f8f8;
+}
