@@ -10,7 +10,7 @@ function DegreesCircle({ degrees }) {
   const viewBox = `0 0 ${size} ${size}`;
 
   const dashArray = radius * Math.PI * 2;
-  const dashOffset = dashArray - (dashArray * degrees) / 6;
+  const dashOffset = dashArray - (dashArray * Math.min(degrees, 6)) / 6;
 
   return (
     <Card className={styles.container}>

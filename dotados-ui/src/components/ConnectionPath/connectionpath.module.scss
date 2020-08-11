@@ -2,6 +2,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow-y: hidden;
 }
 
 .card {

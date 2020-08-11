@@ -1326,7 +1326,7 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@material-ui/core@^4.11.0":
+"@material-ui/core@^4.11.0", "@material-ui/core@^4.4.0":
   version "4.11.0"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-4.11.0.tgz#b69b26e4553c9e53f2bfaf1053e216a0af9be15a"
   integrity sha512-bYo9uIub8wGhZySHqLQ833zi4ZML+XCBE1XwJ8EuUVSpTWWG57Pm+YugQToJNFsEyiKFhPh8DPD0bgupz8n01g==
@@ -8842,6 +8842,14 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+react-animated-list@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/react-animated-list/-/react-animated-list-0.1.4.tgz#604ca318de2225f024310a459e8e574dd1626e68"
+  integrity sha512-Ce9zRjUao4u4sSL08dT5Ofk09/lyfq6UBJ/+RPLn+Fg5n4w1Kr+tef8E8oFwl28YrtN5vEE4ATTh8ovIDpIgfg==
+  dependencies:
+    "@material-ui/core" "^4.4.0"
+    use-state-api-hooks "^1.2.1"
+
 react-app-polyfill@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/react-app-polyfill/-/react-app-polyfill-1.0.6.tgz#890f8d7f2842ce6073f030b117de9130a5f385f0"
@@ -10591,6 +10599,11 @@ url@^0.11.0:
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
+
+use-state-api-hooks@^1.2.1:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/use-state-api-hooks/-/use-state-api-hooks-1.5.0.tgz#c864aaa0d8be7b1cc9d6e853c25712b6b8c01566"
+  integrity sha512-34LSQm35ZeEiCY0QbqzP/m5l9t5cwootBFJHSxmhjkiCUe5GtgiucBEONe/VLJFUCuTpmA5mWBZYGFSivsJsBw==
 
 use@^3.1.0:
   version "3.1.1"

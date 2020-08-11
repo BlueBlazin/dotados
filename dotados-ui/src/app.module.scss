@@ -1,0 +1,55 @@
+.container {
+  background-color: #222831;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  max-width: 100vw;
+  min-height: 100vh;
+  background-image: url("/aegis.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  padding-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.footer {
+  background-color: #d65a31;
+  box-sizing: border-box;
+  background-color: #d65a31;
+  width: 100vw;
+  height: 225px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // background-image: url("/secret.jpg");
+  position: relative;
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 225px;
+    z-index: 2;
+    background-image: url("/secret.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    box-sizing: border-box;
+    width: 100vw;
+    opacity: 0.1;
+    color: white;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  span {
+    color: #eeeeee;
+    margin-top: 15px;
+  }
+}
