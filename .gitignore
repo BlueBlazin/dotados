@@ -184,6 +184,7 @@ dmypy.json
 raw_images*/
 data/images
 data/*_old*
+data/filtered_images/*
 
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.

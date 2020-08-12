@@ -1,6 +1,6 @@
 # Dota 2 Pro Player Degrees of Separation
 
-![Screenshot]()
+![Screenshot](https://github.com/BlueBlazin/dotados/blob/master/screenshot.png)
 
 This website provides an interface and visualizations on a graph Dota 2 pro players.
 
