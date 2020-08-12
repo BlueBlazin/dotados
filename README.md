@@ -2,6 +2,8 @@
 
 ![Screenshot](https://github.com/BlueBlazin/dotados/blob/master/screenshot.png)
 
+**URL:** http://sixdegreesdota.surge.sh/
+
 This website provides an interface and visualizations on a graph Dota 2 pro players.
 
 Two players have a connection in this graph if they have played on the same team.
