@@ -7,23 +7,27 @@ import ConnectionPath from "../ConnectionPath";
 import DegreesCircle from "../DegreesCircle";
 import styles from "./separation.module.scss";
 
-function Separation() {
-  const graph = new Graph(data);
+function Separation({ playerA, playerB, setPlayerA, setPlayerB, graph }) {
+  // const graph = new Graph(data);
 
-  const [playerA, setPlayerA] = useState(null);
-  const [playerB, setPlayerB] = useState(null);
+  // const [playerA, setPlayerA] = useState(null);
+  // const [playerB, setPlayerB] = useState(null);
   const [degrees, setDegrees] = useState(0);
   const [path, setPath] = useState([]);
 
   useEffect(() => {
     if (playerA && playerB) {
       const path = graph.findSeparation(playerA, playerB);
-      setPath(path);
-      setDegrees(path.length);
-    } else {
-      setPath([]);
-      setDegrees(0);
+
+      if (path !== null) {
+        setPath(path);
+        setDegrees(path.length);
+        return;
+      }
     }
+
+    setPath([]);
+    setDegrees(0);
   }, [playerA, playerB]);
 
   return (
