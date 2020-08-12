@@ -2,7 +2,7 @@
 
 ![Screenshot](https://github.com/BlueBlazin/dotados/blob/master/screenshot.png)
 
-**URL:** http://sixdegreesdota.surge.sh/
+**URL:** http://sixdegreesofdota.surge.sh/
 
 This website provides an interface and visualizations on a graph Dota 2 pro players.
 
