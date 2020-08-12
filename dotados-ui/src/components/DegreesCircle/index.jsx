@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "@material-ui/core/Card";
+import { useSpring, animated } from "react-spring";
 
 import styles from "./degreescircle.module.scss";
 
@@ -10,7 +11,11 @@ function DegreesCircle({ degrees }) {
   const viewBox = `0 0 ${size} ${size}`;
 
   const dashArray = radius * Math.PI * 2;
-  const dashOffset = dashArray - (dashArray * Math.min(degrees, 6)) / 6;
+  // const dashOffset = dashArray - (dashArray * Math.min(degrees, 6)) / 6;
+
+  const { dashOffset } = useSpring({
+    dashOffset: dashArray - (dashArray * Math.min(degrees, 6)) / 6,
+  });
 
   return (
     <Card className={styles.container}>
@@ -22,7 +27,7 @@ function DegreesCircle({ degrees }) {
           r={radius}
           strokeWidth={`${strokeWidth}px`}
         />
-        <circle
+        <animated.circle
           className={styles.progress}
           cx={size / 2}
           cy={size / 2}

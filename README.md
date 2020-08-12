@@ -5,3 +5,9 @@
 This website provides an interface and visualizations on a graph Dota 2 pro players.
 
 Two players have a connection in this graph if they have played on the same team.
+
+---
+
+## Attributions
+
+Data used in the webapp is from Liquipedia (https://liquipedia.net/). This includes team rosters and player info.

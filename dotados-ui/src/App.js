@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Tooltip from "@material-ui/core/Tooltip";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
+
 import { data } from "./data/graph";
 import { Graph } from "./graph";
-
 import Separation from "./components/Separations";
 import styles from "./app.module.scss";
 
@@ -45,16 +46,18 @@ function App() {
         />
       </div>
       <div className={styles.footer}>
+        <span>
+          <Link to="/about">About</Link>
+        </span>
+
         <span>Thanks for the connections • Thanks for the Dota</span>
+
+        <span>
+          <Link to="/attributions">Attributions</Link>
+        </span>
       </div>
     </ThemeProvider>
   );
 }
 
 export default App;
-
-// const styles = {
-//   backgroundColor: "#222831",
-//   display: "flex",
-//   justifyContent: "center",
-// };
