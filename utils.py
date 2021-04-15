@@ -34,8 +34,8 @@ def read_players():
 
 
 def rectify_team_rosters():
-    src_path = Path('.') / 'team_rosters_old.pkl'
-    dst_path = Path('.') / 'team_rosters.pkl'
+    src_path = Path('.') / 'team_rosters_merged.pkl'
+    dst_path = Path('.') / 'team_rosters_merged.pkl'
 
     with src_path.open('rb') as f:
         teams = pickle.load(f)
@@ -49,6 +49,7 @@ def rectify_team_rosters():
         corrected_rosters = []
 
         for roster in team.rosters:
+            roster = [p.split('<!--')[0] for p in roster]
             roster = [p.strip() for p in roster]
             corrected_rosters.append(roster)
 
@@ -59,8 +60,26 @@ def rectify_team_rosters():
         pickle.dump(new_teams, f)
 
 
+def merge_team_rosters(files):
+    dst_path = Path('.') / 'team_rosters_merged.pkl'
+    all_teams = []
+    seen = set()
+
+    for filepath in files:
+        with open(filepath, 'rb') as f:
+            teams = pickle.load(f)
+
+        for team in teams:
+            if team != [] and team.name not in seen:
+                all_teams.append(team)
+                seen.add(team.name)
+
+    with dst_path.open('wb') as f:
+        pickle.dump(all_teams, f)
+
+
 def read_teams():
-    path = Path('.') / 'team_rosters.pkl'
+    path = Path('.') / 'team_rosters_merged.pkl'
 
     with path.open('rb') as f:
         teams = pickle.load(f)
@@ -69,4 +88,8 @@ def read_teams():
 
 
 if __name__ == "__main__":
+    # merge_team_rosters(['team_rosters.pkl',
+    #                     'team_rosters2.pkl',
+    #                     'team_rosters_old.pkl',
+    #                     'team_rosters.pkl copy'])
     rectify_team_rosters()

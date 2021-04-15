@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Tooltip from "@material-ui/core/Tooltip";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import { Link } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 
 import { data } from "./data/graph";
 import { Graph } from "./graph";
@@ -16,17 +16,37 @@ const darkTheme = createMuiTheme({
 
 function App() {
   const graph = new Graph(data);
+  const history = useHistory();
+  const { playerA = null, playerB = null } = useParams();
 
-  const [playerA, setPlayerA] = useState(null);
-  const [playerB, setPlayerB] = useState(null);
+  function updatePlayerA(value) {
+    if (value === null) {
+      history.push(`/`);
+    } else {
+      if (playerB === null) {
+        history.push(`/${value}`);
+      } else {
+        history.push(`/${value}/${playerB}`);
+      }
+    }
+  }
+
+  function updatePlayerB(value) {
+    if (playerA !== null) {
+      if (value === null) {
+        history.push(`/${playerA}`);
+      } else {
+        history.push(`/${playerA}/${value}`);
+      }
+    }
+  }
 
   const getRandomPlayer = () => {
     return graph.players[Math.floor(Math.random() * graph.players.length)];
   };
 
   function randomPlayer() {
-    setPlayerA(getRandomPlayer());
-    setPlayerB(getRandomPlayer());
+    history.push(`/${getRandomPlayer()}/${getRandomPlayer()}`);
   }
 
   return (
@@ -40,8 +60,8 @@ function App() {
         <Separation
           playerA={playerA}
           playerB={playerB}
-          setPlayerA={setPlayerA}
-          setPlayerB={setPlayerB}
+          updatePlayerA={updatePlayerA}
+          updatePlayerB={updatePlayerB}
           graph={graph}
         />
       </div>
@@ -50,7 +70,8 @@ function App() {
           <Link to="/about">About</Link>
         </span>
 
-        <span>Thanks for the connections • Thanks for the Dota</span>
+        {/* <span>Thanks for the connections • Thanks for the Dota</span> */}
+        <span>Thanks for the Dota</span>
 
         <span>
           <Link to="/attributions">Attributions</Link>

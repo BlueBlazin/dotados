@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { data } from "../../data/graph";
-import { Graph } from "../../graph";
 
 import PlayerSelectBox from "../PlayerSelectBox";
 import ConnectionPath from "../ConnectionPath";
 import DegreesCircle from "../DegreesCircle";
 import styles from "./separation.module.scss";
 
-function Separation({ playerA, playerB, setPlayerA, setPlayerB, graph }) {
-  // const graph = new Graph(data);
-
-  // const [playerA, setPlayerA] = useState(null);
-  // const [playerB, setPlayerB] = useState(null);
+function Separation({ playerA, playerB, updatePlayerA, updatePlayerB, graph }) {
   const [degrees, setDegrees] = useState(0);
   const [path, setPath] = useState([]);
 
@@ -37,7 +31,7 @@ function Separation({ playerA, playerB, setPlayerA, setPlayerB, graph }) {
           playerStr="A"
           playerNames={graph.players}
           handleInputChange={(event, newValue) => {
-            setPlayerA(newValue);
+            updatePlayerA(newValue);
           }}
           value={playerA}
         />
@@ -46,7 +40,7 @@ function Separation({ playerA, playerB, setPlayerA, setPlayerB, graph }) {
           playerStr="B"
           playerNames={graph.players}
           handleInputChange={(event, newValue) => {
-            setPlayerB(newValue);
+            updatePlayerB(newValue);
           }}
           value={playerB}
         />

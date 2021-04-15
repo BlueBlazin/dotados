@@ -18,6 +18,12 @@ ReactDOM.render(
         <Route path="/attributions">
           <Attributions />
         </Route>
+        <Route path="/:playerA/:playerB">
+          <App />
+        </Route>
+        <Route path="/:playerA">
+          <App />
+        </Route>
         <Route path="/">
           <App />
         </Route>

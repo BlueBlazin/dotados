@@ -17,15 +17,11 @@ function PlayerSelectBox({ playerStr, playerNames, handleInputChange, value }) {
     <Card className={styles.container}>
       <CardContent className={styles.content}>
         <div className={styles.header}>
-          {/* <PersonIcon
-            style={{ color: "#d65a31", marginRight: 30, fontSize: 40 }}
-          /> */}
           <Avatar alt={value} src="" />
           <div className={styles.title}>
             <Typography
               style={{
                 fontSize: 19,
-                // borderBottom: "2px solid #d65a31",
                 alignSelf: "center",
               }}
             >
